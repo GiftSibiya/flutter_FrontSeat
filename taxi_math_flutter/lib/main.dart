@@ -23,15 +23,23 @@ class TaxiMath extends StatelessWidget {
                   colors: [Colors.yellow, Colors.red])),
           child: Center(
             child: Container(
-              height: 450,
-              width: 300,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: Container(
-                child: Icon(Icons.menu),
-              ),
-            ),
+                height: 450,
+                width: 300,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(Icons.menu),
+                        Text
+                        Icon(Icons.person),
+                      ],
+                    )
+                  ],
+                )),
           ),
         ),
       ),
