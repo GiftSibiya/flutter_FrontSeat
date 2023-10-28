@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_math_flutter/custom_widgets/rowField.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  int _fare = 0;
+
+  int _seats = 0;
+
+  @override
   Widget build(BuildContext context) {
+    int driverCash = _fare * _seats;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -51,22 +61,28 @@ class MainScreen extends StatelessWidget {
                             ])),
                   ]),
                   // This is the end of the header row
-                  const Row(
+                  Row(
                     // This is the row for the taxi fare an passanger counts
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
                         children: [
-                          Padding(
+                          const Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 40, vertical: 2)),
-                          Text("Taxi Fare"),
-                          SizedBox(height: 5),
+                          const Text("Taxi Fare"),
+                          const SizedBox(height: 5),
                           SizedBox(
-                            width: 40,
+                            width: 50,
                             height: 30,
                             child: TextField(
-                              decoration: InputDecoration(
+                              keyboardType: TextInputType.number,
+                              onChanged: (value) {
+                                setState(() {
+                                  _fare = int.tryParse(value) ?? 0;
+                                });
+                              },
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 filled:
                                     true, // Use filled property instead of fillColor
@@ -79,17 +95,22 @@ class MainScreen extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Padding(
+                          const Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 40, vertical: 2)),
-                          Text("Total Seats"),
-                          SizedBox(height: 5),
+                          const Text("Total Seats"),
+                          const SizedBox(height: 5),
                           SizedBox(
-                            width: 40,
+                            width: 50,
                             height: 30,
                             child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  _seats = int.tryParse(value) ?? 0;
+                                });
+                              },
                               keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                               ),
                             ),
@@ -101,7 +122,7 @@ class MainScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text("Driver's change is R"),
+                  Text("Driver's change is R $driverCash"),
                   Container(
                     //This is the grey box surrounding the calculation rows
                     height: 250,
@@ -112,7 +133,7 @@ class MainScreen extends StatelessWidget {
                             const BorderRadius.all(Radius.circular(10))),
 
                     child: ListView(
-                      children: const [
+                      children: [
                         RowField(
                           rowNum: "1",
                         ),
