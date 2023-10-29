@@ -3,21 +3,30 @@ import 'package:taxi_math_flutter/pages/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class RowField extends StatefulWidget {
+  late final String rowNum;
+  int fare = 0;
+
   RowField({
     super.key,
     required this.rowNum,
+    required this.fare,
   });
 
   @override
   State<RowField> createState() => _RowFieldState();
-  int _paid = 0;
-  int _rowSeats = 0;
-  final String rowNum;
 }
 
 class _RowFieldState extends State<RowField> {
+  int _paid = 0;
+  int _rowSeats = 0;
+  int fare = 0;
+
+  /////
+
   @override
   Widget build(BuildContext context) {
+    int rowTotal = (fare * _rowSeats);
+    int rowChange = (rowTotal - _paid);
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Container(
@@ -66,7 +75,9 @@ class _RowFieldState extends State<RowField> {
               ],
             ),
             const Column(
-              children: [Text("Change"), Text("R")],
+              children: [
+                Text("Change"),
+              ],
             ),
             const Column(
               children: [Text("Drivers"), Text("R")],

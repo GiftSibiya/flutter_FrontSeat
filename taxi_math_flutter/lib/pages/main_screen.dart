@@ -136,18 +136,23 @@ class _MainScreenState extends State<MainScreen> {
                       children: [
                         RowField(
                           rowNum: "1",
+                          fare: _fare,
                         ),
                         RowField(
                           rowNum: "2",
+                          fare: _fare,
                         ),
                         RowField(
                           rowNum: "3",
+                          fare: _fare,
                         ),
                         RowField(
                           rowNum: "4",
+                          fare: _fare,
                         ),
                         RowField(
                           rowNum: "5",
+                          fare: _fare,
                         )
                       ],
                     ),
