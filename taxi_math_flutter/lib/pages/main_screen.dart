@@ -27,18 +27,36 @@ class _MainScreenState extends State<MainScreen> {
   int s4 = 0;
   int p5 = 0;
   int s5 = 0;
+  int p6 = 0;
+  int s6 = 0;
+  int p7 = 0;
+  int s7 = 0;
 
   @override
   Widget build(BuildContext context) {
     int driverCash = _fare * _seats;
+
     ////Build variables for row calculators/////
+
     ///for change calculations
-    int change1 = _fare * s1;
-    int change2 = _fare * s2;
-    int change3 = _fare * s3;
-    int change4 = _fare * s4;
-    int change5 = _fare * s5;
+    int change1 = p1 - (_fare * s1);
+    int change2 = p2 - (_fare * s2);
+    int change3 = p3 - (_fare * s3);
+    int change4 = p4 - (_fare * s4);
+    int change5 = p5 - (_fare * s5);
+    int change6 = p6 - (_fare * s6);
+    int change7 = p7 - (_fare * s7);
     //// for the drivers calculation///
+
+    int drivers1 = _fare * s1;
+    int drivers2 = _fare * s2;
+    int drivers3 = _fare * s3;
+    int drivers4 = _fare * s4;
+    int drivers5 = _fare * s5;
+    int drivers6 = _fare * s6;
+    int drivers7 = _fare * s7;
+
+    //// Alright that's enough i think ////
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -146,19 +164,31 @@ class _MainScreenState extends State<MainScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text("Driver's change is R $driverCash"),
+                  Text(
+                    "Driver's cash is: R " + driverCash.toString(),
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Container(
+                    padding: EdgeInsets.all(2),
                     //This is the grey box surrounding the calculation rows
+
                     height: 250,
                     decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.grey[400],
                         border: Border.all(color: Colors.black),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10))),
 
                     //////////////// This is of rthe row calculations things ////////////////////////////
+
                     child: ListView(
+                      padding: EdgeInsets.all(5),
                       children: [
+                        //// Fistr Row ////
+
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Container(
@@ -186,7 +216,7 @@ class _MainScreenState extends State<MainScreen> {
                                           });
                                         },
                                         keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                             fillColor: Colors.white,
                                             filled: true,
                                             border: OutlineInputBorder()),
@@ -207,7 +237,7 @@ class _MainScreenState extends State<MainScreen> {
                                           });
                                         },
                                         keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                             fillColor: Colors.white,
                                             filled: true,
                                             border: OutlineInputBorder()),
@@ -218,7 +248,7 @@ class _MainScreenState extends State<MainScreen> {
                                 Column(
                                   children: [
                                     Text("Change"),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Text(
@@ -228,13 +258,22 @@ class _MainScreenState extends State<MainScreen> {
                                   ],
                                 ),
                                 Column(
-                                  children: [Text("Drivers"), Text("R")],
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers1.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
                                 )
                               ],
                             ),
                           ),
                         ),
                         ////// End of the first one //////
+
+                        ///Second one is here
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Container(
@@ -245,7 +284,7 @@ class _MainScreenState extends State<MainScreen> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
                             ),
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text("2"),
@@ -256,8 +295,13 @@ class _MainScreenState extends State<MainScreen> {
                                       width: 60,
                                       height: 30,
                                       child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            p2 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
                                         keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                             fillColor: Colors.white,
                                             filled: true,
                                             border: OutlineInputBorder()),
@@ -272,8 +316,13 @@ class _MainScreenState extends State<MainScreen> {
                                       width: 60,
                                       height: 30,
                                       child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            s2 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
                                         keyboardType: TextInputType.number,
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                             fillColor: Colors.white,
                                             filled: true,
                                             border: OutlineInputBorder()),
@@ -284,15 +333,450 @@ class _MainScreenState extends State<MainScreen> {
                                 Column(
                                   children: [
                                     Text("Change"),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "R" + change2.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
                                   ],
                                 ),
                                 Column(
-                                  children: [Text("Drivers"), Text("R")],
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers2.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
                                 )
                               ],
                             ),
                           ),
                         ),
+
+                        //// Third one starts here ////
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Container(
+                            width: 280,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("3"),
+                                Column(
+                                  children: [
+                                    Text("Paid"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            p3 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Seats"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            s3 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Change"),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "R" + change3.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers3.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        //// Beginning of fourth row
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Container(
+                            width: 280,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("4"),
+                                Column(
+                                  children: [
+                                    Text("Paid"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            p4 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Seats"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            s4 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Change"),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "R" + change4.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers4.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        //// Here is the 5th row ////
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Container(
+                            width: 280,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("5"),
+                                Column(
+                                  children: [
+                                    Text("Paid"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            p5 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Seats"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            s5 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Change"),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "R" + change5.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers5.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        //// 6th one right here ////
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Container(
+                            width: 280,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("6"),
+                                Column(
+                                  children: [
+                                    Text("Paid"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            p6 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Seats"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            s6 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Change"),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "R" + change6.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers6.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        //// Let's make it seven for good measure
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Container(
+                            width: 280,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("7"),
+                                Column(
+                                  children: [
+                                    Text("Paid"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            p7 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Seats"),
+                                    SizedBox(
+                                      width: 60,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            s7 = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            border: OutlineInputBorder()),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Change"),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "R" + change7.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text("Drivers"),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "R" + drivers7.toString(),
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        //// Thats the end of the last one there ////
+                        Padding(padding: EdgeInsets.symmetric(vertical: 40))
                       ],
                     ),
                   )
