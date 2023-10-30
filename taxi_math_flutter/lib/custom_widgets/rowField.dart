@@ -27,64 +27,6 @@ class _RowFieldState extends State<RowField> {
   Widget build(BuildContext context) {
     int rowTotal = (fare * _rowSeats);
     int rowChange = (rowTotal - _paid);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: Container(
-        width: 280,
-        height: 55,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text(widget.rowNum.toString()),
-            const Column(
-              children: [
-                Text("Paid"),
-                SizedBox(
-                  width: 60,
-                  height: 30,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder()),
-                  ),
-                )
-              ],
-            ),
-            ////
-            ///
-            const Column(
-              children: [
-                Text("Seats"),
-                SizedBox(
-                  width: 60,
-                  height: 30,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder()),
-                  ),
-                )
-              ],
-            ),
-            const Column(
-              children: [
-                Text("Change"),
-              ],
-            ),
-            const Column(
-              children: [Text("Drivers"), Text("R")],
-            )
-          ],
-        ),
-      ),
-    );
+    return Container();
   }
 }
