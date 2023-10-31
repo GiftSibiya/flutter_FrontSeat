@@ -60,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: 540,
+          height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -68,8 +68,8 @@ class _MainScreenState extends State<MainScreen> {
                   colors: [Colors.yellow, Colors.red])),
           child: Center(
             child: Container(
-              height: 440,
-              width: 300,
+              height: MediaQuery.of(context).size.height * 0.9,
+              width: MediaQuery.of(context).size.width * 0.9,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(
@@ -82,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
                   Row(children: [
                     Container(
                         height: 50,
-                        width: 300,
+                        width: 280,
                         decoration: const BoxDecoration(
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(10)),
@@ -174,8 +174,8 @@ class _MainScreenState extends State<MainScreen> {
                   Container(
                     padding: EdgeInsets.all(2),
                     //This is the grey box surrounding the calculation rows
-
-                    height: 250,
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    height: MediaQuery.of(context).size.height * 0.55,
                     decoration: BoxDecoration(
                         color: Colors.grey[400],
                         border: Border.all(color: Colors.black),
