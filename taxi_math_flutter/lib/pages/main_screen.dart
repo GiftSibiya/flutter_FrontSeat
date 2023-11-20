@@ -53,6 +53,7 @@ class _MainScreenState extends State<MainScreen> {
     ////Build variables for row calculators/////
     ///
     ///These are varibles for iszes, yes they are supposed to be on a different file i know
+    /// Will make a different dart file dor the variables and include them as imports
     double rowDataSize = 15;
 
     ///for change calculations
