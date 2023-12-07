@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_math_flutter/src/Constants/colors.dart';
 import 'package:taxi_math_flutter/src/utils/themes/themes.dart';
 
 class MainScreen extends StatefulWidget {
@@ -90,7 +91,7 @@ class _MainScreenState extends State<MainScreen> {
                       width: MediaQuery.of(context).size.width * 0.9,
 
                       decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
+                          color: _iconBool ? lightColor : darkColor,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10),
                           )),
@@ -219,7 +220,7 @@ class _MainScreenState extends State<MainScreen> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.55,
                       decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
+                          color: _iconBool ? lightColor : darkColor,
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10))),
 

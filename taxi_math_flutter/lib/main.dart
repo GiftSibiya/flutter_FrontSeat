@@ -21,7 +21,7 @@ class TaxiMath extends StatelessWidget {
         // -- themes --//
         theme: GAppThemes.lightTheme,
         darkTheme: GAppThemes.darkTheme,
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.light,
 // This theme switcher is not working as it should homie
         //--//
 
