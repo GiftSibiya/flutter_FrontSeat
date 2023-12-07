@@ -12,6 +12,7 @@ class TaxiMath extends StatelessWidget {
   const TaxiMath({super.key});
 
   // This widget is the root of your application.
+  // Tryhadding the theme data here
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
