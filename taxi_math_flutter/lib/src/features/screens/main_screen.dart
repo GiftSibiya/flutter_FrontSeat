@@ -89,63 +89,65 @@ class _MainScreenState extends State<MainScreen> {
                     Center(
                         ///// Thsi will be our appbar ////
                         child: Container(
-                      height: MediaQuery.of(context).size.height * 0.28,
                       width: MediaQuery.of(context).size.width * 0.9,
 
                       decoration: BoxDecoration(
-                          color: _iconBool ? lightColor : darkColor,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(10),
-                          )),
+                        color: _iconBool ? lightColor : darkColor,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
 
                       //Here is the main coumn below
                       child: Column(children: [
                         // This is the header row
                         Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ////
-                              Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 10),
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.vertical(
-                                      top: Radius.circular(10)),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ////
+                            Container(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(10)),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(
+                                        () {
                                           _iconBool = !_iconBool;
-                                        });
-                                      },
-                                      child: Icon(
-                                          _iconBool ? _iconLight : _iconDark),
+                                        },
+                                      );
+                                    },
+                                    child: Icon(
+                                        _iconBool ? _iconLight : _iconDark),
+                                  ),
+                                  const Text(
+                                    "FRONT SEAT",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      // Handle the click on the second icon
+                                      // You can define a function or callback here
+                                      // e.g., Navigator.push(...), showDialog(...), etc.
+                                    },
+                                    child: const Icon(
+                                      Icons.person,
                                     ),
-                                    const Text(
-                                      "FRONT SEAT",
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        // Handle the click on the second icon
-                                        // You can define a function or callback here
-                                        // e.g., Navigator.push(...), showDialog(...), etc.
-                                      },
-                                      child: const Icon(
-                                        Icons.person,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
+                                  ),
+                                ],
+                              ),
+                            )
 
-                              ///
-                            ]),
+                            ///
+                          ],
+                        ),
                         Row(
                           // This is the row for the taxi fare an passanger counts
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -240,7 +242,7 @@ class _MainScreenState extends State<MainScreen> {
                               height: 55,
                               decoration: const BoxDecoration(
                                 borderRadius:
-                                    const BorderRadius.all(Radius.circular(10)),
+                                    BorderRadius.all(Radius.circular(10)),
                               ),
                               child: Row(
                                 mainAxisAlignment:
@@ -296,7 +298,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change1.toString(),
+                                        "R$change1",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -306,7 +308,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers1.toString(),
+                                        "R$drivers1",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -381,7 +383,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change2.toString(),
+                                        "R$change2",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -391,7 +393,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers2.toString(),
+                                        "R$drivers2",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -465,7 +467,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change3.toString(),
+                                        "R$change3",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -475,7 +477,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers3.toString(),
+                                        "R$drivers3",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -549,7 +551,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change4.toString(),
+                                        "R$change4",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -559,7 +561,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers4.toString(),
+                                        "R$drivers4",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -633,7 +635,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change5.toString(),
+                                        "R$change5",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -643,7 +645,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers5.toString(),
+                                        "R$drivers5",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -717,7 +719,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change6.toString(),
+                                        "R$change6",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -727,7 +729,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers6.toString(),
+                                        "R$drivers6",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -743,8 +745,9 @@ class _MainScreenState extends State<MainScreen> {
                               width: 280,
                               height: 55,
                               decoration: const BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
                               ),
                               child: Row(
                                 mainAxisAlignment:
@@ -800,7 +803,7 @@ class _MainScreenState extends State<MainScreen> {
                                         height: 5,
                                       ),
                                       Text(
-                                        "R" + change7.toString(),
+                                        "R$change7",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
@@ -810,7 +813,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Text("Drivers"),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "R" + drivers7.toString(),
+                                        "R$drivers7",
                                         style: TextStyle(fontSize: rowDataSize),
                                       )
                                     ],
