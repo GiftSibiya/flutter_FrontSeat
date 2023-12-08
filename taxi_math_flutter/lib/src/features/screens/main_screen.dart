@@ -69,6 +69,8 @@ class _MainScreenState extends State<MainScreen> {
     int drivers7 = _fare * s7;
 
     //// Alright that's enough i think ////
+    // -- This is for the dialogue -- //
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: _iconBool ? GAppThemes.lightTheme : GAppThemes.darkTheme,
@@ -125,7 +127,7 @@ class _MainScreenState extends State<MainScreen> {
                                           _iconBool ? _iconLight : _iconDark),
                                     ),
                                     const Text(
-                                      "Taxi Math",
+                                      "FRONT SEAT",
                                       style: TextStyle(fontSize: 18),
                                     ),
                                     GestureDetector(
