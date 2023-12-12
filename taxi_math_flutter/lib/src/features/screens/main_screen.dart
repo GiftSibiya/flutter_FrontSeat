@@ -87,136 +87,145 @@ class _MainScreenState extends State<MainScreen> {
                     //// This is after the AppBar Thing////
 
                     Center(
-                        ///// Thsi will be our appbar ////
-                        child: Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
+                      ///// This will be our appbar ////
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
 
-                      decoration: BoxDecoration(
-                        color: _iconBool ? lightColor : darkColor,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
+                        decoration: BoxDecoration(
+                          color: _iconBool ? lightColor : darkColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10),
+                          ),
                         ),
-                      ),
 
-                      //Here is the main coumn below
-                      child: Column(children: [
-                        // This is the header row
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        //Here is the main coumn below
+                        child: Column(
                           children: [
-                            ////
-                            Container(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              width: MediaQuery.of(context).size.width * 0.8,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(10)),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(
-                                        () {
-                                          _iconBool = !_iconBool;
-                                        },
-                                      );
-                                    },
-                                    child: Icon(
-                                        _iconBool ? _iconLight : _iconDark),
-                                  ),
-                                  const Text(
-                                    "FRONT SEAT",
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      // Handle the click on the second icon
-                                      // You can define a function or callback here
-                                      // e.g., Navigator.push(...), showDialog(...), etc.
-                                    },
-                                    child: const Icon(
-                                      Icons.person,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-
-                            ///
-                          ],
-                        ),
-                        Row(
-                          // This is the row for the taxi fare an passanger counts
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
+                            // This is the header row
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 40, vertical: 2)),
-                                const Text("Taxi Fare"),
-                                const SizedBox(height: 5),
-                                SizedBox(
-                                  width: 50,
-                                  height: 30,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _fare = int.tryParse(value) ?? 0;
-                                      });
-                                    },
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      filled:
-                                          true, // Use filled property instead of fillColor
-                                      fillColor: Colors
-                                          .white, // Set a light background color
-                                    ),
+                                ////
+                                Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.8,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(10)),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(
+                                            () {
+                                              _iconBool = !_iconBool;
+                                            },
+                                          );
+                                        },
+                                        child: Icon(
+                                            _iconBool ? _iconLight : _iconDark),
+                                      ),
+                                      const Text(
+                                        "FRONT SEAT",
+                                        style: TextStyle(fontSize: 18),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          // Handle the click on the second icon
+                                          // You can define a function or callback here
+                                          // e.g., Navigator.push(...), showDialog(...), etc.
+                                        },
+                                        child: const Icon(
+                                          Icons.person,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 )
+
+                                ///
                               ],
                             ),
-                            Column(
+                            Row(
+                              // This is the row for the taxi fare an passanger counts
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                //// first row with legacy code ////
-                                const Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 40, vertical: 2)),
-                                const Text("Total Seats"),
-                                const SizedBox(height: 5),
-                                SizedBox(
-                                  width: 50,
-                                  height: 30,
-                                  child: TextField(
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _seats = int.tryParse(value) ?? 0;
-                                      });
-                                    },
-                                    keyboardType: TextInputType.number,
-                                    decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        filled: true,
-                                        fillColor: Colors.white),
-                                  ),
+                                Column(
+                                  children: [
+                                    const Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 40, vertical: 2)),
+                                    const Text("Taxi Fare"),
+                                    const SizedBox(height: 5),
+                                    SizedBox(
+                                      width: 50,
+                                      height: 30,
+                                      child: TextField(
+                                        keyboardType: TextInputType.number,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _fare = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        decoration: const InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          filled:
+                                              true, // Use filled property instead of fillColor
+                                          fillColor: Colors
+                                              .white, // Set a light background color
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    //// first row with legacy code ////
+                                    const Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 40, vertical: 2)),
+                                    const Text("Total Seats"),
+                                    const SizedBox(height: 5),
+                                    SizedBox(
+                                      width: 50,
+                                      height: 30,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _seats = int.tryParse(value) ?? 0;
+                                          });
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        decoration: const InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            filled: true,
+                                            fillColor: Colors.white),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              "Driver's cash is: R $driverCash",
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            )
                           ],
                         ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          "Driver's cash is: R $driverCash",
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ]),
-                    )),
+                      ),
+                    ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     Container(
                       padding: const EdgeInsets.all(6),
@@ -224,9 +233,10 @@ class _MainScreenState extends State<MainScreen> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.55,
                       decoration: BoxDecoration(
-                          color: _iconBool ? lightColor : darkColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10))),
+                        color: _iconBool ? lightColor : darkColor,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                      ),
 
                       //////////////// This is for the row calculations things ////////////////////////////
 
