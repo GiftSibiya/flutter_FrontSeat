@@ -3,7 +3,10 @@
 If you've seen the web version of this application [here](https://giftsibiya.github.io/TaxiMaths/), this is the mobile application made using the flutter framework. This recieved some sytle changes to better suite the mobile aesthetic. Works the same way however i'm still to add multi-fare support.
 You can visit my linkedIn or TikTok to see it in action.
 
-![project image](/assets/images/screenshots/dark_screenshot.png)
+![project image](/taxi_math_flutter/assets/images/screenshots/dark_screenshot.png
+)
+![project image](/taxi_math_flutter/assets/images/screenshots/light_screenshot.png
+)
 
 ## Made with love in:
 **Dart** ,
