@@ -1,6 +1,6 @@
 # Mobile Taxi Math (Front Seat)
 
-If you've seen the web version of this application [here](https://giftsibiya.github.io/TaxiMaths/), this is the mobile application made using the Flutter framework. It has undergone some style changes to better suit the mobile aesthetic. Although it functions the same way, I am still working on adding multi-fare support.
+If you've seen the web version of this application [here](https://giftsibiya.github.io/TaxiMaths/), this is the mobile application made using the Flutter framework (There exist a version runing react native). It has undergone some style changes to better suit the mobile aesthetic. Although it functions the same way, I am still working on adding multi-fare support.
 
 Feel free to visit my LinkedIn or TikTok to see it in action.
 
